@@ -10,6 +10,7 @@ import requests
 import musicLibrary
 from dotenv import load_dotenv
 import google.generativeai as genai
+from bot import reply
 
 engine = pyttsx3.init(driverName='espeak')
 
@@ -91,6 +92,8 @@ def processCommand(command):
         webbrowser.open("https://www.linkedin.com")
         speak("opening linkedin")
 
+    elif "reply the chat" in command:
+        reply()
     elif "search" in command:
         query = command.split("search ")[1]
         webbrowser.open(f"https://www.google.com/search?q={query}")
